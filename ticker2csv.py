@@ -27,16 +27,12 @@ else:
     end_date = pd.Timestamp.today().strftime("%Y-%m-%d")
 
 ##### lookback
-end_date = pd.Timestamp.today()
-start_date = end_date - pd.DateOffset(years=3)
-
 df = yf.download(
     tickerlist,
-    start=start_date.strftime("%Y-%m-%d"),
+    start=start_date,
     end=end_date,
     auto_adjust=False,
-    progress=False
-    )
+    progress=False)
 
 #### output
 filename = "_".join(tickerlist) + ".csv"
