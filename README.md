@@ -1,4 +1,6 @@
 # ticker2csv
+Don't go through the hassle of manually copy+pasting data from Yahoo Finance, or worse, paying for Yahoo Finance Gold.
+
 A simple Python script that fetches Yahoo Finance data for one or more tickers and exports it to a CSV file. Enter one or multiple tickers and it will export the results directly to a `.csv` file. Requires `yfinance`
 
 It returns:
