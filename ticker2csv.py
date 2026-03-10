@@ -11,6 +11,7 @@ Created on Mon Mar  9 13:21:02 2026
 ##### libs
 import yfinance as yf
 import pandas as pd
+from pathlib import Path
 
 ##### Initial input
 print("Enter ticker(s), separate with commas (e.g. AAPL, VOO, GLD).")
@@ -38,7 +39,8 @@ df = yf.download(
 filename = "_".join(tickerlist) + ".csv"
 df.to_csv(filename)
 
-print(f"{filename} successfully exported !")
+filepath = Path(filename).resolve()
+print(f"Successfully exported to {filepath.resolve()}")
 print(df.head())
 
 
