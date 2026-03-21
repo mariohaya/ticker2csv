@@ -13,11 +13,14 @@ import yfinance as yf
 import pandas as pd
 from pathlib import Path
 
+from datetime import datetime
+
 ##### Initial input
+# ticker
 print("Enter ticker(s), separate with commas (e.g. AAPL, VOO, GLD).")
 tickerinputs = input("Ticker(s): ")
 tickerlist = [t.strip().upper() for t in tickerinputs.split(",") if t.strip()]
-
+# date
 print("Enter date range (yyyy-mm-dd to yyyy-mm-dd):")
 date_input = input("Date range: ").strip()
 
@@ -32,11 +35,12 @@ df = yf.download(
     tickerlist,
     start=start_date,
     end=end_date,
-    auto_adjust=False,
-    progress=False)
+    auto_adjust=True,
+    progress=True)
 
 #### output
-filename = "_".join(tickerlist) + ".csv"
+timestamp = datetime.now().strftime("%b%d-%H%M").lower()
+filename = "_".join(tickerlist) + "_" + "" + timestamp + ".csv" 
 df.to_csv(filename)
 
 filepath = Path(filename).resolve()
