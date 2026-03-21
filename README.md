@@ -9,6 +9,7 @@ It returns:
 - Open, Close, Adj Close
 - High, Low
 - Volume
+- Daily, Log, Cumulative returns
 
 ## Usage
 - Enter one or multiple tickers in this format: `VOO, AAPL, GLD`
